@@ -19,14 +19,24 @@ def main():
         list(map(lambda partnet_port: "localhost:%s" % partnet_port, partners)),
     )
 
+    time.sleep(2)
     n = 0
     while True:
-        if n == 20:
+        if n == 3:
             break
+        print("Iteration %d" % n)
         time.sleep(0.5)
 
-        tuple_space.incCounter()
-        print(tuple_space.getCounter())
+        tuple_space.write(
+            (
+                "a",
+                "b",
+                "f",
+                "c",
+            )
+        )
+        print(tuple_space.space)
+        print(len(tuple_space.space))
         n += 1
 
 
