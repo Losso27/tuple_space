@@ -36,9 +36,8 @@ class TupleSpace(SyncObj):
     def remove(self, t):
         self.space.remove(t)
 
-    @replicated
     def get(self, t):
         t2 = self.read(t)
         if t2 != None:
-            self.space.remove(t2)
-            return t2
+            self.remove(t2)
+        return t2
