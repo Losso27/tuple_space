@@ -41,4 +41,4 @@ class TupleSpace(SyncObj):
         t2 = self.read(t)
         if t2 != None:
             self.space.remove(t2)
-        return t2
+            return t2

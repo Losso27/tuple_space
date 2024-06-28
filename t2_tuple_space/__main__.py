@@ -19,25 +19,36 @@ def main():
         list(map(lambda partnet_port: "localhost:%s" % partnet_port, partners)),
     )
 
-    time.sleep(2)
     n = 0
     while True:
-        if n == 3:
+        print("Digite [1] para get, [2] para read, [3] para write, [4] para imprimir o espaço e qualquer outra entrada para encerar:")
+        string_input = input()
+        string_input = string_input.strip()
+        if string_input == "1":
+            print("digite a tupla entre no formato (x,y,z):")
+            a = input()
+            a = a.replace(")", "")
+            a = a.replace("(", "")
+            a = tuple(x for x in a.split(","))
+            print(tuple_space.get(a))
+        elif string_input == "2":
+            print("digite a tupla entre no formato (x,y,z):")
+            a = input()
+            a = a.replace(")", "")
+            a = a.replace("(", "")
+            a = tuple(x for x in a.split(","))
+            print(tuple_space.read(a))
+        elif string_input == "3":
+            print("digite a tupla entre no formato (x,y,z):")
+            a = input()
+            a = a.replace(")", "")
+            a = a.replace("(", "")
+            a = tuple(x for x in a.split(","))
+            tuple_space.write(a)
+        elif string_input == "4":
+            print(tuple_space.space)
+        else:
             break
-        print("Iteration %d" % n)
-        time.sleep(0.5)
-
-        tuple_space.write(
-            (
-                "a",
-                "b",
-                "f",
-                "c",
-            )
-        )
-        print(tuple_space.space)
-        print(len(tuple_space.space))
-        n += 1
 
 
 if __name__ == "__main__":

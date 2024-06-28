@@ -6,7 +6,7 @@ authors = ["Patrick Machado <patrick.silva@orium.network>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.10"
 pysyncobj = "^0.3.12"
 
 
