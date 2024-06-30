@@ -1,4 +1,5 @@
 from pysyncobj import SyncObj, SyncObjConf, replicated
+import time
 
 
 class TupleSpace(SyncObj):
@@ -41,3 +42,10 @@ class TupleSpace(SyncObj):
         if t2 != None:
             self.remove(t2)
         return t2
+    
+    def blocking_get(self, t):
+        while True:
+            tr = self.get(t)
+            if tr != None:
+                return tr
+            time.sleep(1)
